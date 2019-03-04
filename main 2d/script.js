@@ -1,8 +1,7 @@
 const game = new Phaser.Game(650, 450, Phaser.AUTO, '', { preload: preload, create: create, update: update, render: render });
 
 function preload() {
-  game.load.image('star', 'assets/star.png');
-  game.load.image('bg', 'assets/bg.png');
+  
 }
 
 let view;
