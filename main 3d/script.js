@@ -139,7 +139,7 @@ function getVal(id) {
 function clearAll() {
   const arr = [['a', 1], ['b', 0], ['c', 0], ['d', 0], ['e', 1], ['f', 0],
   ['h', 0], ['i', 0], ['j', 1], ['l', 0], ['m', 0], ['n', 0],
-  ['angle', 0], ['pX', 0], ['pY', 0], ['pZ', 0]];
+  ['angle', 0], ['pX', 0], ['pY', 0], ['pZ', 0], ['axis', 'x']];
 
   arr.forEach((elem) => document.getElementById(elem[0]).value = elem[1]);
   document.getElementById('axis').value = 'x';

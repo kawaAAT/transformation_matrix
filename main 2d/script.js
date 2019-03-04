@@ -13,31 +13,26 @@ let graphics1, graphics2, graphics3, graphics4;
 const handles = [];
 
 function create() {
-  const bg = game.add.sprite(-140, -10, 'bg');
-  bg.scale.set(0.64)
+  game.stage.backgroundColor = "#242438";
+
+  createCoordinates();
 
   view = game.add.group();
   view.x = 150;
   view.y = 350;
   view.scale.y = -1;
 
-  handle1 = game.add.sprite(0, 0, 'star');
+  handle1 = new Phaser.Point(0, 0);
   handles.push(handle1);
 
-  handle2 = game.add.sprite(100, 0, 'star');
+  handle2 = new Phaser.Point(100, 0);
   handles.push(handle2);
 
-  handle3 = game.add.sprite(100, 100, 'star');
+  handle3 = new Phaser.Point(100, 100);
   handles.push(handle3);
 
-  handle4 = game.add.sprite(0, 100, 'star');
+  handle4 = new Phaser.Point(0, 100);
   handles.push(handle4);
-
-  handles.forEach(elem => {
-    elem.anchor.set(0.5);
-    elem.scale.set(0.3);
-    view.add(elem)
-  })
 
   line1 = new Phaser.Line(0, 0, 0, 0);
   line2 = new Phaser.Line(0, 0, 0, 0);
@@ -72,6 +67,15 @@ function render() {
   game.debug.geom(line2);
   game.debug.geom(line3);
   game.debug.geom(line4);
+}
+
+function createCoordinates() {
+  const graphics = game.add.graphics(0, 0);
+  graphics.lineStyle(1, 0xA4DEFF, 1);
+  graphics.moveTo(150, 0);
+  graphics.lineTo(150, 350);
+  graphics.lineTo(800, 350);
+  graphics.endFill();
 }
 
 function transform() {
@@ -118,7 +122,7 @@ function clearAll() {
 
 function updateGraphics(l) {
   const graphics = game.add.graphics(0, 0);
-  graphics.lineStyle(6, 0x5CF000, 1);
+  graphics.lineStyle(3, 0x5CF000, 1);
   graphics.moveTo(l.start.x, l.start.y);
   graphics.lineTo(l.end.x, l.end.y);
   graphics.endFill();
